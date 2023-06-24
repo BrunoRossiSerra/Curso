@@ -1,7 +1,13 @@
-import java.util.Arrays;
+import com.sun.org.apache.xpath.internal.objects.XBoolean;
+
 import java.util.Scanner;
 
-public class DesafioFinal {
+public class DesafioFinalRefatorando {
+    /*Como fazer para localizar um numero
+    dentro do vetor
+    int p = Arrays.binarySearch(nomedoVetor, posição);
+
+     */
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
@@ -16,14 +22,17 @@ public class DesafioFinal {
         int posicaoNomeConta=0,posicaoNumeroConta=0,
             posicaoNumeroAgencia=0;
         int tipoDeConta=0;
-        while (menu<4){
+        boolean valida = true;
+
+        while (menu<4 ){
             System.out.println("Escolhe as opçoes");
             System.out.println("1 -Cadastrar Conta");
             System.out.println("2 -Consultar Contas");
             System.out.println("3 -Remover conta");
             System.out.println("4 = Sair");
             menu = teclado.nextInt();
-            while (menu>4){
+
+                 while (menu>4){
                 System.out.println("Número inválido");
                 System.out.println("Digite numero entre 1 e 4 para retornar ao menu");
                 menu = teclado.nextInt();
@@ -31,8 +40,10 @@ public class DesafioFinal {
                 System.out.println("Programa Encerrado Com sucesso ");
             }switch (menu){
                 case 1:
+
                     System.out.println("Digite o nome do cliente ");
                     contaCliente[posicaoNomeConta++] = teclado.next();
+
                     System.out.println("Digte numero da conta");
                     numeroConta[posicaoNumeroConta++] = teclado.nextInt();
                     System.out.println("Digite o numero da agencia");
@@ -65,4 +76,13 @@ public class DesafioFinal {
         }
 
     }
+    public static boolean isInteger(String str){
+        if (str.matches("[A-Z]*")){
+            return false;
+        }else {
+            return str != null && str.matches("[0-9]*") ;
+        }
+
+    }
+
 }
