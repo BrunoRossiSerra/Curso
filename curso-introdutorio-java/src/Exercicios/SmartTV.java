@@ -13,7 +13,17 @@ public class SmartTV {
         ligado = true;
         System.out.println("A Tv Ligou");
     }
-    public void mudarCanal(){
+    public int mudarCanal(int canalNovo){
+        return canal = canalNovo;
+    }
+    public void diminuirCanal(){
+        if (ligado){
+            canal++;
+        }else{
+            System.out.println("a tv não esta ligada");
+        }
+    }
+    public void subirCanal(){
         if (ligado){
             canal++;
         }else{
